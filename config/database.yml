@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: <%= ENV["FINANCE_CONTROL_DB_PASSWORD"] %>
+  host: localhost
+
+development:
+  <<: *default
+  database: finance_control_development
+
+test:
+  <<: *default
+  database: finance_control_test
+
+production:
+  <<: *default
+  database: finance_control_production
