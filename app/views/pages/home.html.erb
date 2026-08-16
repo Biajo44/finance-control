@@ -1,0 +1,7 @@
+<h1>Bem-vindo ao FinanceControl!</h1>
+
+<% if logged_in? %>
+  <p>Você está logado como <strong><%= current_user.name %></strong>.</p>
+<% else %>
+  <p><%= link_to "Fazer login", login_path %></p>
+<% end %>
