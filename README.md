@@ -1,24 +1,14 @@
-# README
+# FinanceControl
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Sistema de controle financeiro desenvolvido em Ruby on Rails, como projeto de portfólio e aprendizado prático de Ruby/Rails.
 
-Things you may want to cover:
+## Tecnologias
 
-* Ruby version
+- Ruby on Rails
+- PostgreSQL
+- Tailwind CSS
+- RSpec
 
-* System dependencies
+## Status
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+🚧 Em desenvolvimento
