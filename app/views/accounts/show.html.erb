@@ -1,0 +1,9 @@
+<h1><%= @account.name %></h1>
+
+<p><strong>Tipo:</strong> <%= @account.account_type.capitalize %></p>
+<p><strong>Saldo:</strong> R$ <%= number_with_precision(@account.balance, precision: 2) %></p>
+<p><strong>Status:</strong> <%= @account.status.capitalize %></p>
+<p><strong>Descrição:</strong> <%= @account.description.presence || "Sem descrição" %></p>
+
+<%= link_to "Editar", edit_account_path(@account) %>
+<%= link_to "Voltar", accounts_path %>

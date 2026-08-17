@@ -1,0 +1,33 @@
+<h1>Minhas contas</h1>
+
+<%= link_to "Nova conta", new_account_path %>
+
+<% if @accounts.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Tipo</th>
+        <th>Saldo</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @accounts.each do |account| %>
+        <tr>
+          <td><%= link_to account.name, account_path(account) %></td>
+          <td><%= account.account_type.capitalize %></td>
+          <td>R$ <%= number_with_precision(account.balance, precision: 2) %></td>
+          <td><%= account.status.capitalize %></td>
+          <td>
+            <%= link_to "Editar", edit_account_path(account) %>
+            <%= button_to "Excluir", account_path(account), method: :delete, data: { turbo_confirm: "Tem certeza?" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>Você ainda não tem nenhuma conta cadastrada.</p>
+<% end %>

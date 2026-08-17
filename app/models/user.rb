@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_secure_password validations: false
 
+  has_many :accounts, dependent: :destroy
+
   before_validation :normalize_email
 
   validates :name, presence: true

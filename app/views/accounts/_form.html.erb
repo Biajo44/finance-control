@@ -1,0 +1,38 @@
+<%= form_with model: @account, local: true do |form| %>
+  <% if @account.errors.any? %>
+    <div style="color: red;">
+      <ul>
+        <% @account.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, "Nome da conta" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :account_type, "Tipo" %>
+    <%= form.select :account_type, Account.account_types.keys.map { |type| [type.capitalize, type] } %>
+  </div>
+
+  <div>
+    <%= form.label :balance, "Saldo" %>
+    <%= form.number_field :balance, step: 0.01 %>
+  </div>
+
+  <div>
+    <%= form.label :description, "Descrição" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :status, "Status" %>
+    <%= form.select :status, Account.statuses.keys.map { |status| [status.capitalize, status] } %>
+  </div>
+
+  <%= form.submit "Salvar" %>
+<% end %>

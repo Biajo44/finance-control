@@ -33,11 +33,12 @@
     <% end %>
 
     <% if logged_in? %>
-      <p class="px-5 py-2">
-        Logado como <%= link_to current_user.name, user_path(current_user) %> —
-        <%= button_to "Sair", logout_path, method: :delete, class: "inline" %>
-      </p>
-    <% end %>
+  <p class="px-5 py-2">
+    Logado como <%= link_to current_user.name, user_path(current_user) %> —
+    <%= link_to "Minhas contas", accounts_path %> —
+    <%= button_to "Sair", logout_path, method: :delete, class: "inline" %>
+  </p>
+<% end %>
 
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
