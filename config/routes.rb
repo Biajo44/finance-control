@@ -13,5 +13,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [ :show, :edit, :update ]
   resources :accounts
+  resources :categories, except: [ :show ]
 end
 end

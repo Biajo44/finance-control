@@ -1,0 +1,23 @@
+<%= form_with model: @category, local: true do |form| %>
+  <% if @category.errors.any? %>
+    <div style="color: red;">
+      <ul>
+        <% @category.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, "Nome da categoria" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :category_type, "Tipo" %>
+    <%= form.select :category_type, Category.category_types.keys.map { |type| [type.capitalize, type] } %>
+  </div>
+
+  <%= form.submit "Salvar" %>
+<% end %>
