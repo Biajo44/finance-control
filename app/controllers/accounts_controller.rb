@@ -48,10 +48,4 @@ class AccountsController < ApplicationController
   def account_params
     params.require(:account).permit(:name, :account_type, :balance, :description, :status)
   end
-
-  def require_login
-    unless logged_in?
-      redirect_to login_path, alert: "Você precisa estar logado."
-    end
-  end
 end

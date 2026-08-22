@@ -15,6 +15,12 @@ class ApplicationController < ActionController::Base
     current_user.present?
   end
 
+  def require_login
+    unless logged_in?
+      redirect_to login_path, alert: "Você precisa estar logado."
+    end
+  end
+
   def record_not_found
     redirect_to root_path, alert: "Registro não encontrado."
   end

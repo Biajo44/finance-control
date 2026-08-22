@@ -46,10 +46,4 @@ class CategoriesController < ApplicationController
   def category_params
     params.require(:category).permit(:name, :category_type)
   end
-
-  def require_login
-    unless logged_in?
-      redirect_to login_path, alert: "Você precisa estar logado."
-    end
-  end
 end

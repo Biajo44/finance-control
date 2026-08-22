@@ -42,12 +42,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def require_login
-    unless logged_in?
-      redirect_to login_path, alert: "Você precisa estar logado."
-    end
-  end
-
   def require_correct_user
     unless @user == current_user
       redirect_to root_path, alert: "Você não tem permissão para fazer isso."
