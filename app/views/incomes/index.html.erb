@@ -1,0 +1,35 @@
+<h1>Receitas</h1>
+
+<%= link_to "Nova receita", new_income_path %>
+
+<% if @incomes.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Descrição</th>
+        <th>Categoria</th>
+        <th>Conta</th>
+        <th>Valor</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @incomes.each do |income| %>
+        <tr>
+          <td><%= income.transaction_date.strftime("%d/%m/%Y") %></td>
+          <td><%= income.description %></td>
+          <td><%= income.category.name %></td>
+          <td><%= income.account.name %></td>
+          <td>R$ <%= number_with_precision(income.amount, precision: 2) %></td>
+          <td>
+            <%= link_to "Editar", edit_income_path(income) %>
+            <%= button_to "Excluir", income_path(income), method: :delete, data: { turbo_confirm: "Tem certeza?" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>Nenhuma receita cadastrada ainda.</p>
+<% end %>

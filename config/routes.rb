@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [ :show, :edit, :update ]
   resources :accounts
+  resources :incomes, controller: "incomes"
   resources :categories, except: [ :show ]
 end
 end

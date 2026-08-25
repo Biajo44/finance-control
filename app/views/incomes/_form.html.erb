@@ -1,0 +1,43 @@
+<%= form_with model: @income, url: (@income.persisted? ? income_path(@income) : incomes_path), local: true do |form| %>
+  <% if @income.errors.any? %>
+    <div style="color: red;">
+      <ul>
+        <% @income.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :description, "Descrição" %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <%= form.label :amount, "Valor (R$)" %>
+    <%= form.number_field :amount, step: 0.01 %>
+  </div>
+
+  <div>
+    <%= form.label :transaction_date, "Data" %>
+    <%= form.date_field :transaction_date %>
+  </div>
+
+  <div>
+    <%= form.label :account_id, "Conta" %>
+    <%= form.collection_select :account_id, @accounts, :id, :name %>
+  </div>
+
+  <div>
+    <%= form.label :category_id, "Categoria" %>
+    <%= form.collection_select :category_id, @categories, :id, :name %>
+  </div>
+
+  <div>
+    <%= form.label :note, "Observação" %>
+    <%= form.text_area :note %>
+  </div>
+
+  <%= form.submit "Salvar" %>
+<% end %>

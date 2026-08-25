@@ -32,14 +32,15 @@
       <p class="bg-red-100 text-red-800 px-4 py-2 text-center"><%= alert %></p>
     <% end %>
 
-   <% if logged_in? %>
+  <% if logged_in? %>
   <p class="px-5 py-2">
     Logado como <%= link_to current_user.name, user_path(current_user) %> —
     <%= link_to "Minhas contas", accounts_path %> —
     <%= link_to "Categorias", categories_path %> —
+    <%= link_to "Receitas", incomes_path %> —
     <%= button_to "Sair", logout_path, method: :delete, class: "inline" %>
   </p>
-  <% end %>
+<% end %>
 
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
